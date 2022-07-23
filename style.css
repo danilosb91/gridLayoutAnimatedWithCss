@@ -1,5 +1,186 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+:root {
+    --ff-heading: "Epilogue", sans-serif;
+    --ff-texting: "Open Sans";
+
+    /* --hue: 250; */
+    --bg-primary: hsl(250, 22%, 20%);
+    --fc-primary: hsl(250, 0%, 100%);
+    --fc-secondary: hsl(250, 50%, 80%);
+    --fc-text-dark: hsl(250, 100%, 11%);
+
+    font-size: 62.5%;
+
+    --fs-body: 1.6rem;
+    --fs-heading: clamp(4rem, 1rem + 5vw, 5.6rem);
+    --fs-heading-sm: clamp(3rem, 0.5rem + 3vw, 4rem);
+
+}
+
+body {
+    font-family: var(--ff-heading);
+    background: var(--bg-primary);
+    color: var(--fc-primary);
+    
+}
+
+img {
+    width: 100%;
+    height:auto;
+ }
+
+   /*  Mobile first concept */
+
+header{
+  text-align: center;
+  margin-top: 9.2rem;
+  animation: topdown 700ms;
+}
+
+header p{
+  font-weight: 400;
+  font-size: var(--fs-heading-sm);
+  line-height: 3.2rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+header h1{
+  font-weight: 800;
+  font-size: var(--fs-heading);
+  line-height: 6.4rem;
+  margin-top: 2rem;
+}
+main{
+ animation: downtop 700ms 350ms backwards;
+  
+}
+.cardsWrapper{
+
+  margin: 0 auto;
+  display: grid;
+  gap: 3.2rem;
+  padding: 0 1rem 0 1rem ;
+  margin-bottom: 5rem;
+}
+
+
+.card{
+  position: relative;
+  
+  
+}
+
+.card img{
+    height: 41.6rem;
+    object-fit: cover;
+    transition: all 200ms;
+    border-radius: 6px;
+
+}
+
+.card img:hover {
+    transform: scale(1.1);
+    opacity: 0.4;
+  }
+
+.card h2{
+  position: absolute;
+  bottom: 5.2rem;
+  left: 2.8rem;
+
+  font-size: 4rem;
+  font-weight: 800;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2.8rem;
+ 
+}
+
+.card span{
+  border-radius: 2rem;
+  background-color: var(--fc-primary);
+  font-size: var(--fs-body);
+  font-weight: 400;
+  color: var(--fc-text-dark);
+  padding: 0 1.6rem;
+  width: fit-content;
+  height: 3.8rem;
+
+  display: inline-flex;
+  align-items: center;
+}
+
+
+
+/* Animations */
+@keyframes topdown {
+    0% {
+      opacity: 0;
+      transform: translateY(-15px);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes downtop {
+    0% {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  /* End of Animations */
+  /*  Table Screen */
+@media (min-width: 700px) {
+    :root {
+      --fs-heading: 5.6rem;
+    }
+    
+    .cardsWrapper{
+        max-width: 117rem;
+        padding: 0  5rem;
+        grid-template-columns: 1fr 1fr;
+    }
+     
+
+ 
+}
+    /*  Desktop Screen */
+  
+@media ( min-width:900px ) {
+    .cardsWrapper{
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-areas: "colA colB colB" "colC colC colD";
+  }
+
+  .cardsWrapper div:nth-child(1){
+      grid-area: colA;
+  }
+
+  .cardsWrapper div:nth-child(2){
+      grid-area: colB;
+  }
+
+  .cardsWrapper div:nth-child(3){
+      grid-area: colC;
+  }
+
+  .cardsWrapper div:nth-child(4){
+      grid-area: colD;
+  }
+  
 }
